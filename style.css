@@ -53,22 +53,41 @@ h1, h2, h3 {
   max-width: 1100px;
   margin: 0 auto;
   padding: 18px 20px 12px;
+  display: grid;
+  grid-template-columns: minmax(56px, 0.8fr) minmax(0, 2.4fr) minmax(56px, 0.8fr);
+  grid-template-areas: "left-logo title right-logo";
+  align-items: center;
+  gap: clamp(10px, 3vw, 28px);
+  direction: ltr;
 }
 
 .brand {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+  grid-area: title;
+  min-width: 0;
+  text-align: center;
+  direction: rtl;
 }
 
-.brand-cross {
-  width: 40px;
-  height: 40px;
-  flex-shrink: 0;
-  fill: none;
-  stroke: var(--gold-light);
-  stroke-width: 2.4;
-  stroke-linecap: round;
+.header-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+
+.header-logo-right { grid-area: right-logo; }
+.header-logo-left { grid-area: left-logo; }
+
+.header-logo-left img {
+  filter: brightness(0) invert(1);
+}
+
+.header-logo img {
+  display: block;
+  width: clamp(56px, 11vw, 104px);
+  height: clamp(56px, 11vw, 104px);
+  max-width: 100%;
+  object-fit: contain;
 }
 
 .brand-text h1 {
@@ -290,7 +309,7 @@ h1, h2, h3 {
 .point-badge span {
   color: var(--gold-pale);
   font-family: 'Aref Ruqaa', serif;
-  font-size: 0.78rem;
+  font-size: 1.2rem;
   line-height: 1.05;
   letter-spacing: -0.2px;
   padding: 0 3px;
@@ -459,6 +478,19 @@ h1, h2, h3 {
   font-size: 0.82rem;
 }
 
+.site-footer p {
+  margin: 0 0 16px;
+}
+
+.footer-logo {
+  display: block;
+  width: min(220px, 60vw);
+  height: auto;
+  max-height: 140px;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
 .to-top {
   position: fixed;
   bottom: 22px;
@@ -497,6 +529,21 @@ h1, h2, h3 {
 /* ---------- Responsive ---------- */
 
 @media (max-width: 720px) {
+  .header-top {
+    padding: 12px 12px 10px;
+    gap: 8px;
+  }
+  .header-logo img {
+    width: clamp(48px, 16vw, 78px);
+    height: clamp(48px, 16vw, 78px);
+  }
+  .brand-text h1 {
+    font-size: clamp(1.2rem, 6vw, 1.8rem);
+  }
+  .brand-text p {
+    font-size: clamp(0.68rem, 2.4vw, 0.8rem);
+    line-height: 1.35;
+  }
   .card-body {
     grid-template-columns: 1fr;
     grid-template-areas: "image" "points";
@@ -528,6 +575,27 @@ h1, h2, h3 {
 }
 
 @media (max-width: 420px) {
+  .header-top {
+    grid-template-columns: minmax(42px, 0.7fr) minmax(0, 2.6fr) minmax(42px, 0.7fr);
+    padding-inline: 8px;
+  }
+  .header-logo img {
+    width: clamp(42px, 15vw, 62px);
+    height: clamp(42px, 15vw, 62px);
+  }
+  .brand-text h1 {
+    font-size: clamp(1.05rem, 6.5vw, 1.45rem);
+  }
+  .brand-text p {
+    margin-top: 2px;
+    font-size: clamp(0.58rem, 2.5vw, 0.7rem);
+  }
+  .site-footer {
+    padding-inline: 12px;
+  }
+  .footer-logo {
+    width: min(180px, 68vw);
+  }
   .point-row {
     gap: 8px;
   }
@@ -536,7 +604,7 @@ h1, h2, h3 {
     height: 48px;
   }
   .point-badge span {
-    font-size: 0.6rem;
+    font-size: 0.85rem;
     line-height: 1;
   }
   .card-banner {

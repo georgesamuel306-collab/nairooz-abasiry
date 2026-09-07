@@ -21,6 +21,11 @@
       .replace(/>/g, '&gt;');
   }
 
+  function imageUrl(value) {
+    const markdownImage = String(value).match(/^\[[^\]]+\]\((https?:\/\/[^)]+)\)$/);
+    return markdownImage ? markdownImage[1] : value;
+  }
+
   function sortRecords(list, mode) {
     const arr = list.slice();
     if (mode === 'name') {
@@ -43,7 +48,7 @@
     return `
       <article class="mini-card" data-id="${m.id}" tabindex="0" role="button" aria-label="افتح سيرة ${escapeHtml(m.name)}">
         <div class="mini-thumb">
-          <img src="${escapeHtml(m.image)}" alt="" loading="lazy" onerror="this.parentElement.classList.add('img-fallback')">
+          <img src="${escapeHtml(imageUrl(m.image))}" alt="" loading="lazy" onerror="this.parentElement.classList.add('img-fallback')">
         </div>
         <div class="mini-name">${escapeHtml(m.name)}</div>
         <div class="mini-date">${escapeHtml(m.date)}</div>
@@ -70,7 +75,7 @@
         </div>
         <div class="card-body">
           <div class="card-image">
-            <img src="${escapeHtml(m.image)}" alt="${escapeHtml(m.name)}" loading="lazy"
+            <img src="${escapeHtml(imageUrl(m.image))}" alt="${escapeHtml(m.name)}" loading="lazy"
                  onerror="this.parentElement.classList.add('img-fallback')">
           </div>
           <div class="card-points">
