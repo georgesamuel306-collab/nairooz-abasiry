@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شهداء النيروز — أسماء وسير</title>
+<meta name="description" content="سير مختصرة لشهداء وقديسي الكنيسة القبطية، بمناسبة عيد النيروز">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-top">
+    <div class="brand">
+      <svg class="brand-cross" viewBox="0 0 48 48" aria-hidden="true">
+        <path d="M24 4 L24 44 M8 16 L40 16 M15 16 C15 10 18 6 24 6 C30 6 33 10 33 16 M15 44 C15 40 18 37 24 37 C30 37 33 40 33 44" />
+      </svg>
+      <div class="brand-text">
+        <h1>شهداء النيروز</h1>
+        <p>سِيَر مختصرة لقديسين وشهداء الكنيسة، تذكارًا لعيد النيروز</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="toolbar" id="toolbar">
+    <div class="search-wrap">
+      <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16.6" y1="16.6" x2="21" y2="21"/></svg>
+      <input id="search" type="text" placeholder="ابحث بالاسم، الشهر، أو كلمة من السيرة…" autocomplete="off">
+    </div>
+    <div class="sort-wrap">
+      <label for="sortSelect">الترتيب</label>
+      <select id="sortSelect">
+        <option value="default">كما وردت</option>
+        <option value="month">حسب الشهر القبطي</option>
+        <option value="name">أبجديًا بالاسم</option>
+      </select>
+    </div>
+    <div class="result-count" id="resultCount" aria-live="polite"></div>
+  </div>
+</header>
+
+<main id="feed" class="feed"></main>
+
+<p id="emptyState" class="empty-state hidden">لا توجد نتائج مطابقة لبحثك.</p>
+
+<footer class="site-footer">
+  <p>عدد السير: <span id="totalCount">42</span> — جُمعت لتذكار عيد النيروز وشهداء الكنيسة القبطية</p>
+</footer>
+
+<button id="toTop" class="to-top" aria-label="العودة للأعلى" title="العودة للأعلى">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5 L12 19 M6 11 L12 5 L18 11"/></svg>
+</button>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
