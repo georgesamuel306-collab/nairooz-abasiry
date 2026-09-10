@@ -168,6 +168,42 @@ h1, h2, h3 {
   white-space: nowrap;
 }
 
+/* ---------- Video ---------- */
+
+.video-section {
+  width: min(100% - 32px, 920px);
+  margin: 28px auto 0;
+  padding: 20px;
+  background: var(--paper-2);
+  border: 1px solid var(--gold);
+  border-radius: var(--radius-card);
+  box-shadow: 0 10px 24px var(--shadow);
+}
+
+.video-section h2 {
+  margin: 0 0 14px;
+  color: var(--ink);
+  font-size: clamp(1.25rem, 3vw, 1.7rem);
+  text-align: center;
+}
+
+.video-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--ink);
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+}
+
+.video-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
 /* ---------- Feed / Cards ---------- */
 
 .feed {
@@ -536,6 +572,11 @@ h1, h2, h3 {
   .header-logo img {
     width: clamp(48px, 16vw, 78px);
     height: clamp(48px, 16vw, 78px);
+  }
+  .video-section {
+    width: min(100% - 20px, 920px);
+    margin-top: 20px;
+    padding: 12px;
   }
   .brand-text h1 {
     font-size: clamp(1.2rem, 6vw, 1.8rem);
