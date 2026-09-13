@@ -7,8 +7,21 @@
   const totalCountEl = document.getElementById('totalCount');
   const toTopBtn = document.getElementById('toTop');
   const toolbar = document.getElementById('toolbar');
+  const homeVideo = document.getElementById('homeVideo');
+  const videoFrame = document.querySelector('.video-frame');
+  const loadVideoBtn = document.getElementById('loadVideo');
 
   totalCountEl.textContent = MARTYRS.length;
+
+  loadVideoBtn.addEventListener('click', () => {
+    const iframe = document.createElement('iframe');
+    iframe.src = 'https://drive.google.com/file/d/1KoZZuEQBPKXVSV9_hs8UfCp1hs-DcXm_/preview';
+    iframe.title = 'فيديو عن شهداء النيروز';
+    iframe.loading = 'eager';
+    iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+    iframe.allow = 'autoplay; fullscreen; encrypted-media; picture-in-picture';
+    videoFrame.replaceChildren(iframe);
+  });
 
   // Stable id per record = its original position in the sheet. Used for
   // routing (#/<id>) so every entry is its own separate, linkable page.
@@ -88,6 +101,7 @@
 
   function renderList() {
     toolbar.classList.remove('hidden');
+    homeVideo.hidden = false;
     const q = searchInput.value.trim();
     const mode = sortSelect.value;
     let list = MARTYRS.filter(m => matches(m, q));
@@ -120,6 +134,7 @@
     if (!m) { location.hash = ''; return; }
 
     toolbar.classList.add('hidden');
+    homeVideo.hidden = true;
     emptyState.classList.add('hidden');
 
     const idx = MARTYRS.indexOf(m);

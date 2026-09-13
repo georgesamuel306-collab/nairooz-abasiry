@@ -197,11 +197,48 @@ h1, h2, h3 {
   border-radius: 8px;
 }
 
+.video-placeholder {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: radial-gradient(circle at center, var(--ink-soft), var(--ink));
+  color: var(--gold-pale);
+  text-align: center;
+}
+
+.video-placeholder p {
+  margin: 0;
+  font-size: 0.82rem;
+}
+
+.video-load {
+  padding: 10px 22px;
+  border: 1.5px solid var(--gold-light);
+  border-radius: 999px;
+  background: var(--gold);
+  color: var(--ink);
+  font: 700 0.95rem 'Tajawal', sans-serif;
+  cursor: pointer;
+}
+
+.video-load:focus-visible,
+.video-load:hover {
+  background: var(--gold-light);
+}
+
 .video-frame iframe {
   display: block;
   width: 100%;
   height: 100%;
   border: 0;
+  max-width: 100%;
+}
+
+.video-section[hidden] {
+  display: none;
 }
 
 /* ---------- Feed / Cards ---------- */
@@ -606,6 +643,28 @@ h1, h2, h3 {
   .toolbar {
     flex-direction: column;
     align-items: stretch;
+  }
+  .detail-nav {
+    align-items: stretch;
+  }
+  .back-link,
+  .nav-btns {
+    justify-content: center;
+  }
+  .back-link,
+  .nav-btn,
+  .nav-btns {
+    width: 100%;
+  }
+  .nav-position {
+    order: -1;
+    text-align: center;
+  }
+  .nav-btns {
+    gap: 8px;
+  }
+  .nav-btn {
+    flex: 1 1 0;
   }
   .sort-wrap {
     justify-content: space-between;
